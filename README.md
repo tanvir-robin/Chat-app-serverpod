@@ -7,7 +7,7 @@
 #### Serverpod is an open-source, scalable app server, written in Dart for the Flutter community.  
 
 - Register.
-- Enter OTP that from your mail.
+- Enter OTP from your mail.
 - ✨Chat ✨
 
 ## Features
