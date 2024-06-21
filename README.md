@@ -6,6 +6,8 @@
 
 ![Serverpod](https://github.com/tanvir-robin/chat-app-serverpod/assets/95021955/8b651c06-3c00-4dcd-86bf-1974ebd74ec6)
 
+![og-removebg-preview](https://github.com/tanvir-robin/chat-app-serverpod/assets/95021955/d8053074-b513-4ab6-9d6f-b71bad719cb2)
+
 
 #### Serverpod is an open-source, scalable app server, written in Dart for the Flutter community.  
 
