@@ -1,0 +1,11 @@
+{
+  "moduleName": "chat_app_serverpod",
+  "tables": [],
+  "installedModules": [
+    {
+      "module": "serverpod",
+      "version": "20240516151843329"
+    }
+  ],
+  "migrationApiVersion": 1
+}

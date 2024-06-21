@@ -1,0 +1,7 @@
+class: Message
+table: messages
+fields:
+  text: String
+  sender: String
+  receiver: String
+  sent: DateTime?

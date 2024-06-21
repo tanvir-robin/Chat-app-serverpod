@@ -1,0 +1,6 @@
+class: Chat
+table: chat
+fields:
+  text: String
+  sender: String
+  sent: DateTime?

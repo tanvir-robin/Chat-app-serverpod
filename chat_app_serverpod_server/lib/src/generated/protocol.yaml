@@ -1,0 +1,10 @@
+message:
+  - sendMessage:
+example:
+  - hello:
+typingIndicator:
+user:
+  - getAllUsers:
+usermessage:
+  - sendNewMessage:
+  - fetchAllMessages:

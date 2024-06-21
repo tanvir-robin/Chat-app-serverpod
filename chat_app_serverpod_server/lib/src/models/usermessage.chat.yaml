@@ -1,0 +1,10 @@
+class: UserMessage
+table: usermessage
+fields:
+  message: String
+  sender: String
+  sent: DateTime?
+  status: String
+  reactions: List<String>?
+  reactionsUsers: List<String>?
+  replyMessages: Map<String, String>?
