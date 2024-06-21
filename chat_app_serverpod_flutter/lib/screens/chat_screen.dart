@@ -39,12 +39,10 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   listenForMessage() async {
-    print('Listening for usermessage----');
     client.usermessage.stream.listen((usermessage) {
-      print('New Message Received: ');
       final cl.UserMessage thisMessage =
           cl.UserMessage.fromJson(usermessage.toJson());
-      print(thisMessage.message);
+
       final index = _chatController.initialMessageList
           .indexWhere((e) => e.id == thisMessage.id.toString());
       if (index != -1) {
@@ -64,9 +62,7 @@ class _ChatScreenState extends State<ChatScreen> {
             voiceMessageDuration: found.voiceMessageDuration);
 
         _chatController.initialMessageList[index] = updatedMessage;
-        print('Message updated in chat controller: ${updatedMessage.message}');
       } else {
-        print('Message not found. Insering');
         _chatController.addMessage(Message(
             createdAt: thisMessage.sent ?? DateTime.now(),
             message: thisMessage.message,
@@ -86,18 +82,13 @@ class _ChatScreenState extends State<ChatScreen> {
       setState(() {});
     });
 
-    print('Listen for type indicator');
     client.typingIndicator.stream.listen((typer) {
-      print('New Typer Received: ');
-
       try {
         final cl.TypingIndicator thisTyper =
             cl.TypingIndicator.fromJson(typer.toJson());
-        print('User ${thisTyper.typerID}');
-        print('Status ${thisTyper.status}');
+
         if (thisTyper.typerID == myUserID) {
-          print('My user id');
-          // return;
+          return;
         } else {
           if (thisTyper.status) {
             _chatController.setTypingIndicator = true;

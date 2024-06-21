@@ -34,19 +34,16 @@ class UsermessageEndpoint extends Endpoint {
       session
           .log('Received message for posting in stream: ${message.toJson()}');
 
-      // Check if the message already exists in the database
       var existingMessages = await UserMessage.db.find(
         session,
         where: (t) => t.id.equals(message.id),
       );
 
       if (existingMessages.isNotEmpty) {
-        // Update the existing message
         UserMessage updated = await UserMessage.db.updateRow(session, message);
         session.log('Updated existing message: ${message.toJson()}');
         session.messages.postMessage('chat_room_serverpod', updated);
       } else {
-        // Insert the new message
         session.log('Trying to insert with ID: ${message.id}');
         UserMessage inserted = await UserMessage.db.insertRow(session, message);
         session.log('Inserted new message: ${message.toJson()}');
