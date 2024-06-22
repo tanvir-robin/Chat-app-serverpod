@@ -63,7 +63,7 @@ Follow the serverpod documenations to run and setup further to the project.
 
 > Use IP '10.0.2.2' instead of 'localhost' while running on emulator.
 
-Run the project
+Run the server project
 
 ```sh
 dart bin/main.dart
