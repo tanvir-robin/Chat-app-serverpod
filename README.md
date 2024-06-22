@@ -1,7 +1,9 @@
 # Flutter & Serverpod - Realtime Chat App
 ## _A Realtime chat app built with Flutter and Serverpod_
 
-![og-removebg-preview](https://github.com/tanvir-robin/chat-app-serverpod/assets/95021955/d8053074-b513-4ab6-9d6f-b71bad719cb2)
+
+![serverpod final output](https://github.com/tanvir-robin/chat-app-serverpod/assets/95021955/d74bf64b-84e3-42a8-8653-fc8b6d72c0c9)
+
 
 
 #### Serverpod is an open-source, scalable app server, written in Dart for the Flutter community.  
