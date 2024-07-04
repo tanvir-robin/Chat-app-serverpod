@@ -50,7 +50,7 @@ Clone the repo to your local machine
 
 ```sh
 cd <Your Desired Directory>
-gh repo clone tanvir-robin/Google-ML-Subject-Segmentation-Flutter
+gh repo clone tanvir-robin/chat-app-serverpod
 ```
 
 Load the dependencies
