@@ -24,21 +24,21 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  serverpod_flutter: 2.0.1
+  serverpod_flutter: 2.8.0
   chat_app_serverpod_client:
     path: ../chat_app_serverpod_client
-  serverpod_auth_email_flutter: ^2.0.1
-  serverpod_auth_shared_flutter: ^2.0.1  
+  serverpod_auth_email_flutter: ^2.8.0
+  serverpod_auth_shared_flutter: ^2.8.0  
 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.5
-  chatview: ^1.3.1
+  chatview: ^2.4.1
   font_awesome_flutter: ^10.7.0
 
 dev_dependencies:
-  flutter_lints: '>=3.0.0 <5.0.0'
+  flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
 

@@ -1,23 +1,23 @@
 /* AUTOMATICALLY GENERATED CODE DO NOT MODIFY */
 /*   To generate run: "serverpod generate"    */
 
-// ignore_for_file: library_private_types_in_public_api
-// ignore_for_file: public_member_api_docs
 // ignore_for_file: implementation_imports
-// ignore_for_file: use_super_parameters
+// ignore_for_file: library_private_types_in_public_api
+// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: public_member_api_docs
 // ignore_for_file: type_literal_in_constant_pattern
+// ignore_for_file: use_super_parameters
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:serverpod/serverpod.dart' as _i1;
-import 'package:serverpod_serialization/serverpod_serialization.dart';
 
-abstract class Chat extends _i1.TableRow implements _i1.ProtocolSerialization {
+abstract class Chat implements _i1.TableRow<int?>, _i1.ProtocolSerialization {
   Chat._({
-    int? id,
+    this.id,
     required this.text,
     required this.sender,
     this.sent,
-  }) : super(id);
+  });
 
   factory Chat({
     int? id,
@@ -41,6 +41,9 @@ abstract class Chat extends _i1.TableRow implements _i1.ProtocolSerialization {
 
   static const db = ChatRepository._();
 
+  @override
+  int? id;
+
   String text;
 
   String sender;
@@ -48,8 +51,11 @@ abstract class Chat extends _i1.TableRow implements _i1.ProtocolSerialization {
   DateTime? sent;
 
   @override
-  _i1.Table get table => t;
+  _i1.Table<int?> get table => t;
 
+  /// Returns a shallow copy of this [Chat]
+  /// with some or all fields replaced by the given arguments.
+  @_i1.useResult
   Chat copyWith({
     int? id,
     String? text,
@@ -121,6 +127,9 @@ class _ChatImpl extends Chat {
           sent: sent,
         );
 
+  /// Returns a shallow copy of this [Chat]
+  /// with some or all fields replaced by the given arguments.
+  @_i1.useResult
   @override
   Chat copyWith({
     Object? id = _Undefined,
@@ -137,7 +146,7 @@ class _ChatImpl extends Chat {
   }
 }
 
-class ChatTable extends _i1.Table {
+class ChatTable extends _i1.Table<int?> {
   ChatTable({super.tableRelation}) : super(tableName: 'chat') {
     text = _i1.ColumnString(
       'text',
@@ -175,7 +184,7 @@ class ChatInclude extends _i1.IncludeObject {
   Map<String, _i1.Include?> get includes => {};
 
   @override
-  _i1.Table get table => Chat.t;
+  _i1.Table<int?> get table => Chat.t;
 }
 
 class ChatIncludeList extends _i1.IncludeList {
@@ -195,12 +204,34 @@ class ChatIncludeList extends _i1.IncludeList {
   Map<String, _i1.Include?> get includes => include?.includes ?? {};
 
   @override
-  _i1.Table get table => Chat.t;
+  _i1.Table<int?> get table => Chat.t;
 }
 
 class ChatRepository {
   const ChatRepository._();
 
+  /// Returns a list of [Chat]s matching the given query parameters.
+  ///
+  /// Use [where] to specify which items to include in the return value.
+  /// If none is specified, all items will be returned.
+  ///
+  /// To specify the order of the items use [orderBy] or [orderByList]
+  /// when sorting by multiple columns.
+  ///
+  /// The maximum number of items can be set by [limit]. If no limit is set,
+  /// all items matching the query will be returned.
+  ///
+  /// [offset] defines how many items to skip, after which [limit] (or all)
+  /// items are read from the database.
+  ///
+  /// ```dart
+  /// var persons = await Persons.db.find(
+  ///   session,
+  ///   where: (t) => t.lastName.equals('Jones'),
+  ///   orderBy: (t) => t.firstName,
+  ///   limit: 100,
+  /// );
+  /// ```
   Future<List<Chat>> find(
     _i1.Session session, {
     _i1.WhereExpressionBuilder<ChatTable>? where,
@@ -222,6 +253,23 @@ class ChatRepository {
     );
   }
 
+  /// Returns the first matching [Chat] matching the given query parameters.
+  ///
+  /// Use [where] to specify which items to include in the return value.
+  /// If none is specified, all items will be returned.
+  ///
+  /// To specify the order use [orderBy] or [orderByList]
+  /// when sorting by multiple columns.
+  ///
+  /// [offset] defines how many items to skip, after which the next one will be picked.
+  ///
+  /// ```dart
+  /// var youngestPerson = await Persons.db.findFirstRow(
+  ///   session,
+  ///   where: (t) => t.lastName.equals('Jones'),
+  ///   orderBy: (t) => t.age,
+  /// );
+  /// ```
   Future<Chat?> findFirstRow(
     _i1.Session session, {
     _i1.WhereExpressionBuilder<ChatTable>? where,
@@ -241,6 +289,7 @@ class ChatRepository {
     );
   }
 
+  /// Finds a single [Chat] by its [id] or null if no such row exists.
   Future<Chat?> findById(
     _i1.Session session,
     int id, {
@@ -252,6 +301,12 @@ class ChatRepository {
     );
   }
 
+  /// Inserts all [Chat]s in the list and returns the inserted rows.
+  ///
+  /// The returned [Chat]s will have their `id` fields set.
+  ///
+  /// This is an atomic operation, meaning that if one of the rows fails to
+  /// insert, none of the rows will be inserted.
   Future<List<Chat>> insert(
     _i1.Session session,
     List<Chat> rows, {
@@ -263,6 +318,9 @@ class ChatRepository {
     );
   }
 
+  /// Inserts a single [Chat] and returns the inserted row.
+  ///
+  /// The returned [Chat] will have its `id` field set.
   Future<Chat> insertRow(
     _i1.Session session,
     Chat row, {
@@ -274,6 +332,11 @@ class ChatRepository {
     );
   }
 
+  /// Updates all [Chat]s in the list and returns the updated rows. If
+  /// [columns] is provided, only those columns will be updated. Defaults to
+  /// all columns.
+  /// This is an atomic operation, meaning that if one of the rows fails to
+  /// update, none of the rows will be updated.
   Future<List<Chat>> update(
     _i1.Session session,
     List<Chat> rows, {
@@ -287,6 +350,9 @@ class ChatRepository {
     );
   }
 
+  /// Updates a single [Chat]. The row needs to have its id set.
+  /// Optionally, a list of [columns] can be provided to only update those
+  /// columns. Defaults to all columns.
   Future<Chat> updateRow(
     _i1.Session session,
     Chat row, {
@@ -300,6 +366,9 @@ class ChatRepository {
     );
   }
 
+  /// Deletes all [Chat]s in the list and returns the deleted rows.
+  /// This is an atomic operation, meaning that if one of the rows fail to
+  /// be deleted, none of the rows will be deleted.
   Future<List<Chat>> delete(
     _i1.Session session,
     List<Chat> rows, {
@@ -311,6 +380,7 @@ class ChatRepository {
     );
   }
 
+  /// Deletes a single [Chat].
   Future<Chat> deleteRow(
     _i1.Session session,
     Chat row, {
@@ -322,6 +392,7 @@ class ChatRepository {
     );
   }
 
+  /// Deletes all rows matching the [where] expression.
   Future<List<Chat>> deleteWhere(
     _i1.Session session, {
     required _i1.WhereExpressionBuilder<ChatTable> where,
@@ -333,6 +404,8 @@ class ChatRepository {
     );
   }
 
+  /// Counts the number of rows matching the [where] expression. If omitted,
+  /// will return the count of all rows in the table.
   Future<int> count(
     _i1.Session session, {
     _i1.WhereExpressionBuilder<ChatTable>? where,
