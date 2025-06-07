@@ -9,7 +9,7 @@ environment:
 dependencies:
   mailer: ^6.1.0
   serverpod: 2.8.0
-  serverpod_auth_server: ^2.8.0
+  serverpod_auth_server: 2.8.0
 
 dev_dependencies:
   lints: ^5.1.1
